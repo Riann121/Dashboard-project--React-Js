@@ -6,7 +6,7 @@ import {TooltipComponent} from '@syncfusion/ej2-react-popups'
 import './App.css';
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import { Ecommerce, Orders, Pie, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Area, Bar, Financial, ColorMapping, ColorPicker, Editor, Line} from './pages';
-import { useStateContext } from './contexts/ContextProvider';
+import { useStateContext} from './contexts/ContextProvider';
 
 const App = () => {
   const {activeMenu, themeSettings, setThemeSettings, currentColor, currentMode} = useStateContext();
