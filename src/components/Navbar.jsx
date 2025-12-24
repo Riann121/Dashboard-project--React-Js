@@ -8,7 +8,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import avater from '../data/avatar.jpg'
 import {Cart, Chat, Notification, UserProfile} from '.';
-import { useStateContext } from '../contexts/ContextProvider';
+import { useStateContext, currentClor } from '../contexts/ContextProvider';
 
 const NavButton = ({title, customFunc, icon, color, dotColor}) => (
   <TooltipComponent content={title} position='BottomCenter'>
@@ -23,7 +23,7 @@ const NavButton = ({title, customFunc, icon, color, dotColor}) => (
 )
 
 const Navbar = () => {
-  const {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize, } = useStateContext();
+  const {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize,currentColor } = useStateContext();
   
   useEffect(()=>{
     const handleResize = ()=>{
@@ -49,14 +49,14 @@ const Navbar = () => {
       <NavButton 
         title='Menu' 
         customFunc={()=>setActiveMenu((prevActiveMenu)=>!prevActiveMenu)} 
-        color='blue' 
+        color={currentColor}
         icon={<AiOutlineMenu/>}
       />
       <div className='flex'>
         <NavButton 
           title='Cart' 
           customFunc={()=>handleClick('cart')} 
-          color='blue' 
+          color={currentColor}
           icon={<FiShoppingCart/>}
         />
 
@@ -64,7 +64,7 @@ const Navbar = () => {
           title='Chat' 
           dotColor="#03C9D7"
           customFunc={()=>handleClick('chat')} 
-          color='blue' 
+          color={currentColor} 
           icon={<BsChatLeft/>}
         />
 
@@ -72,7 +72,7 @@ const Navbar = () => {
           title='Notifications' 
           dotColor="#03C9D7"
           customFunc={()=>handleClick('notification')} 
-          color='blue' 
+          color={currentColor} 
           icon={<RiNotification3Line/>}
         />
         <TooltipComponent
