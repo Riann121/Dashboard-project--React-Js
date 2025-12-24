@@ -1,7 +1,9 @@
 import React from 'react'
 import {SparklineComponent, Inject, SparklineTooltip} from '@syncfusion/ej2-react-charts'
 
-const SparkLine = ({id, height, width, color, data, type, currentColor }) => {
+class SparkLine extends React.PureComponent{
+  render(){
+  const {id, height, width, color, data, type, currentColor } = this.props;
   return (
     <SparklineComponent
       id = {id}
@@ -27,6 +29,7 @@ const SparkLine = ({id, height, width, color, data, type, currentColor }) => {
       
     </SparklineComponent>
   )
+}
 }
 
 export default SparkLine
